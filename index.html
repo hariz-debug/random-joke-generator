@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Joke Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #f4f4f4;
+    }
+    .container {
+      text-align: center;
+      max-width: 500px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      background: white;
+      border-radius: 8px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      background-color: #007BFF;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #joke {
+      font-size: 18px;
+      min-height: 60px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Random Joke Generator</h1>
+    <p id="joke">Click the button to see a joke!</p>
+    <button id="jokeBtn">Get Joke</button>
+  </div>
+<script>
+  const jokes = [
+    'Why don\'t scientists trust atoms? Because they make up everything!',
+    'I told my computer I needed a break, and it said "No problem – I\'ll go to sleep."',
+    'Why did the scarecrow win an award? Because he was outstanding in his field.',
+    'Why do programmers prefer dark mode? Because light attracts bugs!',
+    'Why did the math book look sad? Because it had too many problems.',
+    'What do you call fake spaghetti? An impasta.',
+    'How does a penguin build its house? Igloos it together.',
+    'Why don\'t some couples go to the gym? Because some relationships don\'t work out.',
+    'How do you organize a space party? You planet.',
+    'Why did the coffee file a police report? It got mugged.',
+    'What does a lemon say when it answers the phone? Yellow!',
+    'Why did the tomato turn red? It saw the salad dressing.',
+    'What do you call a belt made of watches? A waist of time.',
+    'Why don\'t skeletons fight each other? They don\'t have the guts.',
+    'What kind of music do mummies listen to? Wrap music.',
+    'What did the buffalo say when his son left for college? Bison.',
+    'Why was the math lecture so long? The professor kept going off on a tangent.',
+    'What do you call cheese that isn\'t yours? Nacho cheese.',
+    'Why did the picture go to jail? Because it was framed.',
+    'How do you make a tissue dance? Put a little boogie in it.',
+    'Why couldn\'t the pony sing a lullaby? Because it was a little horse.',
+    'Why don\'t oysters share their pearls? Because they\'re shellfish.',
+    'Why did the golfer bring two pairs of pants? In case he got a hole in one.',
+    'What do you call a magic dog? A labracadabrador.',
+    'Why was the stadium so cool? It was filled with fans.',
+    'What do you call an alligator in a vest? An investigator.',
+    'Why did the cookie go to the doctor? Because it felt crummy.',
+    'Why do bicycles fall over? Because they are two-tired.',
+    'What did one hat say to the other? Stay here, I\'m going on ahead.',
+    'Why don\'t eggs tell jokes? They\'d crack each other up.',
+    'What do you call a sleeping bull? A bulldozer.',
+    'Why did the computer go to the doctor? It had a virus.',
+    'What do you call a parade of rabbits hopping backwards? A receding hare-line.',
+    'Why are ghosts bad at lying? Because they are too transparent.',
+    'Why did the orange stop rolling? It ran out of juice.',
+    'What do you call an apology written in dots and dashes? Re-Morse code.',
+    'What do you call a snowman with a six-pack? An abdominal snowman.',
+    'How does Moses make tea? Hebrews it.',
+    'Why couldn\'t the leopard play hide and seek? Because he was always spotted.',
+    'Why do cows have hooves instead of feet? Because they lactose.',
+    'Why do bees have sticky hair? Because they use honeycombs.',
+    'Why did the chicken join a band? Because it had the drumsticks.',
+    'How do you catch a whole school of fish? With bookworms.',
+    'What do you call a factory that makes okay products? A satisfactory.',
+    'What did the fisherman say to the magician? Pick a cod, any cod.',
+    'Why didn\'t the skeleton go to the dance? He had no body to go with.',
+    'Why are elevator jokes so classic? They work on many levels.',
+    'Why did the man put his money in the freezer? He wanted cold hard cash.',
+    'Why did the banker switch careers? He lost interest.',
+    'How do you make holy water? You boil the hell out of it.',
+    'Why did the music teacher need a ladder? To reach the high notes.',
+    'What kind of shoes do ninjas wear? Sneakers.',
+    'Why was the broom late? It overswept.',
+    'Why did the whale cross the ocean? To get to the other tide.',
+    'What did one wall say to the other? I\'ll meet you at the corner.',
+    'What do you call birds that stick together? Velcrows.',
+    'Why don\'t scientists trust stairs? They\'re always up to something.',
+    'Why was the computer cold? It left its Windows open.',
+    'Why did the barber win the race? Because he took a short cut.',
+    'Why do seagulls fly over the sea? Because if they flew over the bay, they\'d be bagels.',
+    'What did the janitor say when he jumped out of the closet? "Supplies!"'
+  ];
+
+  const button = document.getElementById('jokeBtn');
+  const jokeEl = document.getElementById('joke');
+  let lastIndex = -1;
+
+  function showJoke() {
+    let index;
+    do {
+      index = Math.floor(Math.random() * jokes.length);
+    } while (index === lastIndex);
+    lastIndex = index;
+    jokeEl.textContent = jokes[index];
+  }
+
+  button.addEventListener('click', showJoke);
+</script>
+</body>
+</html>
